@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECO CLUB - Kendriya Vidyalaya Tatanagar</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>ECO CLUB</h1>
+        <h2>Kendriya Vidyalaya Tatanagar</h2>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showSection('home')">Home</a></li>
+            <li><a href="#" onclick="showSection('vote')">Vote</a></li>
+            <li><a href="#" onclick="showSection('leaderboard')">Leaderboard</a></li>
+            <li><a href="#" onclick="showSection('login')">Member Login</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home-section">
+            <h3>Welcome to the ECO CLUB</h3>
+            <p>Vote for your favorite Eco Club members and help them earn recognition!</p>
+        </section>
+        <section id="login-section" class="hidden">
+            <h3>Login</h3>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p id="login-message"></p>
+        </section>
+        <section id="admin-section" class="hidden">
+            <h3>Admin Panel</h3>
+            <input type="text" id="new-member-name" placeholder="New Member Name">
+            <input type="text" id="new-member-class" placeholder="New Member Class">
+            <button onclick="addMember()">Add Member</button>
+            <ul id="admin-member-list">
+                <!-- Admin member list will be populated here -->
+            </ul>
+            <h3>Analytics Dashboard</h3>
+            <div id="analytics-dashboard">
+                <!-- Analytics will be shown here -->
+            </div>
+            <button onclick="exportVotingData()">Export Voting Data</button>
+        </section>
+        <section id="user-section" class="hidden">
+            <h3>Club Members</h3>
+            <ul id="member-list">
+                <!-- List of members will be populated here -->
+            </ul>
+            <h3>Your Votes</h3>
+            <ul id="user-vote-list">
+                <!-- User's vote list will be populated here -->
+            </ul>
+            <h3>Change Password</h3>
+            <input type="password" id="new-password" placeholder="New Password">
+            <button onclick="changePassword()">Change Password</button>
+            <h3>Profile</h3>
+            <input type="text" id="profile-name" placeholder="Name">
+            <input type="text" id="profile-class" placeholder="Class">
+            <button onclick="updateProfile()">Update Profile</button>
+            <h3>Voting History</h3>
+            <ul id="voting-history-list">
+                <!-- Voting history will be populated here -->
+            </ul>
+            <h3>Activity Log</h3>
+            <ul id="activity-log">
+                <!-- Activity log will be populated here -->
+            </ul>
+        </section>
+        <section id="vote-section" class="hidden">
+            <h3>Vote for Your Favorite Member</h3>
+            <select id="member-select">
+                <!-- Options will be populated here -->
+            </select>
+            <button onclick="vote()">Vote</button>
+            <p id="vote-message"></p>
+            <h3>Comments</h3>
+            <ul id="comments-list">
+                <!-- Comments will be populated here -->
+            </ul>
+            <textarea id="new-comment" placeholder="Leave a comment"></textarea>
+            <button onclick="addComment()">Add Comment</button>
+        </section>
+        <section id="leaderboard-section" class="hidden">
+            <h3>Leaderboard</h3>
+            <ul id="leaderboard-list">
+                <!-- Leaderboard will be populated here -->
+            </ul>
+            <h3>Search Members</h3>
+            <input type="text" id="search-query" placeholder="Search by name or class" oninput="searchMembers()">
+            <ul id="search-results">
+                <!-- Search results will be populated here -->
+            </ul>
+        </section>
+        <section id="voting-chart-section" class="hidden">
+            <h3>Voting Chart</h3>
+            <canvas id="votingChart"></canvas>
+        </section>
+        <section id="certificate-section" class="hidden">
+            <h2>Certificate of Achievement</h2>
+            <p id="certificate-member-name"></p>
+            <p>has received more than 50 votes and is awarded this certificate for their outstanding contribution.</p>
+            <button onclick="downloadCertificate()">Download Certificate</button>
+            <button onclick="showSection('home')">Back to Home</button>
+        </section>
+        <section id="head-section" class="hidden">
+            <h2>Head of ECO Club</h2>
+            <p id="head-member-name"></p>
+            <p>is designated as the head of the ECO Club for this month.</p>
+            <button onclick="showSection('home')">Back to Home</button>
+        </section>
+    </main>    
+    <script src="script.js"></script>
+</body>
+</html>
